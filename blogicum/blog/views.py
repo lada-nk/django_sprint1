@@ -44,22 +44,22 @@ posts = [
 ]
 
 
-# Возвращает главную страницу.
 def index(request):
+    """Возвращает главную страницу."""
     template_name = 'blog/index.html'
     context = {'posts_list': list(reversed(posts))}
     return render(request, template_name, context)
 
 
-# Возвращает заданный пост.
 def post_detail(request, pk):
+    """Возвращает заданный пост."""
     template_name = 'blog/detail.html'
     context = {'post': posts[pk]}
     return render(request, template_name, context)
 
 
-# Возвращает посты в заданной категории.
 def category_posts(request, category_slug):
+    """Возвращает посты в заданной категории."""
     template_name = 'blog/category.html'
     context = {'category_slug': category_slug}
     return render(request, template_name, context)
